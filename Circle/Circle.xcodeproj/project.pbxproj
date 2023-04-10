@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E557E2129E493880095E700 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E557E2029E493880095E700 /* SignInView.swift */; };
 		3E5D3AE729DE676500F1AA99 /* CircleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5D3AE629DE676500F1AA99 /* CircleApp.swift */; };
 		3E5D3AEB29DE676600F1AA99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E5D3AEA29DE676600F1AA99 /* Assets.xcassets */; };
 		3E5D3AEE29DE676600F1AA99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E5D3AED29DE676600F1AA99 /* Preview Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E557E2029E493880095E700 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		3E5D3AE329DE676500F1AA99 /* Circle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Circle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E5D3AE629DE676500F1AA99 /* CircleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleApp.swift; sourceTree = "<group>"; };
 		3E5D3AEA29DE676600F1AA99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				3E5D3AF529DE943500F1AA99 /* SignUpView.swift */,
+				3E557E2029E493880095E700 /* SignInView.swift */,
 			);
 			path = "Sign-Up-Sign-In";
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E557E2129E493880095E700 /* SignInView.swift in Sources */,
 				3E5D3AF629DE943500F1AA99 /* SignUpView.swift in Sources */,
 				3E5D3AE729DE676500F1AA99 /* CircleApp.swift in Sources */,
 			);
