@@ -2,7 +2,7 @@
 //  SignInView.swift
 //  Circle
 //
-//  Created by Jabet on 4/10/23.
+//  Created by Jonathan Castersen on 4/10/23.
 //
 
 import SwiftUI
