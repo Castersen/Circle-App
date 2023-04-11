@@ -15,7 +15,7 @@ struct SignUpView: View {
     @State var confirmPassword = ""
 
     var body: some View {
-        ScrollView {
+        NavigationStack {
             VStack(alignment: .leading) {
                 // Title
                 Text("Create Account")
@@ -38,13 +38,21 @@ struct SignUpView: View {
                     SignUpHandler(Email: email, Username: username,
                                   Password: password, ConfirmPassword: confirmPassword)
                 }
+                .buttonStyle(ActionButtonStyle())
 
-                Text("Already have a account? Sign In")
+                HStack {
+                    Text("Already have an account?")
+                    NavigationLink(destination: SignInView()) {
+                        Text("Sign In")
+                            .foregroundColor(Color(red: 249/255, green: 135/255, blue: 3/255))
+                    }
+                }
+                
             }
             .padding(20)
-            .buttonStyle(ActionButtonStyle())
             .textFieldStyle(SignUpFieldStyle())
         }
+        .navigationBarBackButtonHidden()
     }
 }
 

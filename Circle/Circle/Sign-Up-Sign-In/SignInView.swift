@@ -11,8 +11,11 @@ struct SignInView: View {
     @State var email = ""
     @State var password = ""
     
+    // Used to pop off the stack and return to the previous view
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
-        ScrollView {
+        NavigationStack {
             VStack(alignment: .leading) {
                 // Title
                 Text("Login")
@@ -30,11 +33,17 @@ struct SignInView: View {
                 Button("LOGIN") {
                     SignInHandler(Email: email, Password: password)
                 }
+                .buttonStyle(ActionButtonStyle())
 
-                Text("Don't have an account? Sign Up")
+                HStack {
+                    Text("Don't have an account?")
+                    Button("Sign Up") {
+                        dismiss()
+                    }
+                    .foregroundColor(Color(red: 249/255, green: 135/255, blue: 3/255))
+                }
             }
             .padding(20)
-            .buttonStyle(ActionButtonStyle())
             .textFieldStyle(SignUpFieldStyle())
         }
     }
