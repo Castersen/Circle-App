@@ -10,6 +10,7 @@ import SwiftUI
 struct SignInView: View {
     @State var email: String = ""
     @State var password: String = ""
+    @State var logInPass: Bool = false
     
     // Used to pop off the stack and return to the previous view
     @Environment(\.dismiss) private var dismiss
@@ -31,7 +32,7 @@ struct SignInView: View {
 
                 // Submit Button
                 Button("LOGIN") {
-                    SignInHandler(Email: email, Password: password)
+                    logInPass = SignInHandler(Email: email, Password: password)
                 }
                 .buttonStyle(ActionButtonStyle())
 
@@ -45,12 +46,15 @@ struct SignInView: View {
             }
             .padding(20)
             .textFieldStyle(SignUpFieldStyle())
+            .navigationDestination(isPresented: $logInPass) {
+                HomePageView()
+            }
         }
     }
 }
 
-func SignInHandler(Email: String, Password: String) -> Void {
-    return
+func SignInHandler(Email: String, Password: String) -> Bool {
+    return true
 }
 
 struct SignInView_Previews: PreviewProvider {

@@ -13,6 +13,7 @@ struct SignUpView: View {
     @State var username: String = ""
     @State var password: String = ""
     @State var confirmPassword: String = ""
+    @State var signUpPass: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -35,8 +36,7 @@ struct SignUpView: View {
 
                 // Submit Button
                 Button("SIGN UP") {
-                    SignUpHandler(Email: email, Username: username,
-                                  Password: password, ConfirmPassword: confirmPassword)
+                    signUpPass = SignUpHandler(Email: email, Username: username, Password: password, ConfirmPassword: confirmPassword)
                 }
                 .buttonStyle(ActionButtonStyle())
 
@@ -51,6 +51,9 @@ struct SignUpView: View {
             }
             .padding(20)
             .textFieldStyle(SignUpFieldStyle())
+            .navigationDestination(isPresented: $signUpPass) {
+                HomePageView()
+            }
         }
         .navigationBarBackButtonHidden()
     }
@@ -58,8 +61,8 @@ struct SignUpView: View {
 
 // Create account logic
 func SignUpHandler(Email: String, Username: String,
-                   Password: String, ConfirmPassword: String) -> Void {
-    return
+                   Password: String, ConfirmPassword: String) -> Bool {
+    return true
 }
 
 // Field overlay
