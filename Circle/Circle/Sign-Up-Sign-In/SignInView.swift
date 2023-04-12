@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SignInView: View {
-    @State var email = ""
-    @State var password = ""
+    @State var email: String = ""
+    @State var password: String = ""
     
     // Used to pop off the stack and return to the previous view
     @Environment(\.dismiss) private var dismiss

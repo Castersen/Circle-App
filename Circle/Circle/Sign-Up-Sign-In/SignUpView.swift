@@ -9,10 +9,10 @@ import SwiftUI
 
 struct SignUpView: View {
     // Store the user input
-    @State var email = ""
-    @State var username = ""
-    @State var password = ""
-    @State var confirmPassword = ""
+    @State var email: String = ""
+    @State var username: String = ""
+    @State var password: String = ""
+    @State var confirmPassword: String = ""
 
     var body: some View {
         NavigationStack {
