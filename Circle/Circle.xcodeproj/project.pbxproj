@@ -12,6 +12,7 @@
 		3E5D3AEB29DE676600F1AA99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E5D3AEA29DE676600F1AA99 /* Assets.xcassets */; };
 		3E5D3AEE29DE676600F1AA99 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E5D3AED29DE676600F1AA99 /* Preview Assets.xcassets */; };
 		3E5D3AF629DE943500F1AA99 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5D3AF529DE943500F1AA99 /* SignUpView.swift */; };
+		3ECFF07929E70E8F00F26C51 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECFF07829E70E8F00F26C51 /* HomePageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		3E5D3AEA29DE676600F1AA99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E5D3AED29DE676600F1AA99 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3E5D3AF529DE943500F1AA99 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		3ECFF07829E70E8F00F26C51 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		3E5D3AE529DE676500F1AA99 /* Circle */ = {
 			isa = PBXGroup;
 			children = (
+				3ECFF07729E70E7900F26C51 /* HomePage */,
 				3E5D3AF429DE690300F1AA99 /* Sign-Up-Sign-In */,
 				3E5D3AE629DE676500F1AA99 /* CircleApp.swift */,
 				3E5D3AEA29DE676600F1AA99 /* Assets.xcassets */,
@@ -76,6 +79,14 @@
 				3E557E2029E493880095E700 /* SignInView.swift */,
 			);
 			path = "Sign-Up-Sign-In";
+			sourceTree = "<group>";
+		};
+		3ECFF07729E70E7900F26C51 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				3ECFF07829E70E8F00F26C51 /* HomePageView.swift */,
+			);
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			files = (
 				3E557E2129E493880095E700 /* SignInView.swift in Sources */,
 				3E5D3AF629DE943500F1AA99 /* SignUpView.swift in Sources */,
+				3ECFF07929E70E8F00F26C51 /* HomePageView.swift in Sources */,
 				3E5D3AE729DE676500F1AA99 /* CircleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
