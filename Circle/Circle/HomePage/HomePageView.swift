@@ -32,10 +32,30 @@ struct HomePageView: View {
     }
 }
 
+// Wellness score
 struct Score: View {
     var score: Int
     var body: some View {
-        Text("This is the score")
+        HStack {
+            Group {
+                VStack(alignment: .leading) {
+                    Text("Wellness Score")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    Text("This score is based on your health data, time spent on certain apps, and surveys")
+                        .font(.footnote)
+                }
+                Text(score.formatted())
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+            }
+            .padding(15)
+        }
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .background(score < 50 ? .red : .green)
+        .foregroundColor(.white)
+        .cornerRadius(15)
+        .shadow(color: .gray, radius: 10)
     }
 }
 
