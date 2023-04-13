@@ -91,9 +91,83 @@ struct CircleMembers: View {
     }
 }
 
+// App tracker container
 struct ManageApps: View {
     var body: some View {
-        Text("Manage your apps")
+        VStack(alignment: .leading) {
+            // Title
+            Group {
+                Text("App Tracker")
+                    .padding([.top], 15)
+                    .foregroundColor(Color(hue: 0.821, saturation: 0.046, brightness: 0.146))
+                    .font(.title2)
+                    .fontWeight(.bold)
+
+                Text("Time spent per week, tap to manage apps")
+                    .font(.footnote)
+                    .foregroundColor(Color(hue: 0.821, saturation: 0.046, brightness: 0.146))
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+            .padding([.leading], 15)
+
+            // Watch apps
+            AppSection(hours: 20, appType: "Watch", icon: "eyes", backgroundColor: Color.orange)
+
+            // Focus apps
+            AppSection(hours: 20, appType: "Focus", icon: "eyeglasses", backgroundColor: Color.green)
+
+            // Self love apps
+            AppSection(hours: 20, appType: "Self Love", icon: "heart", backgroundColor: Color.red)
+                .padding([.bottom], 15)
+        }
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .background(Color(red: 0.96, green: 0.97, blue: 0.98))
+        .cornerRadius(15)
+        .shadow(color: .gray, radius: 5)
+    }
+}
+
+// App tracker section
+struct AppSection: View {
+    var hours: Int
+    var appType: String
+    var icon: String
+    var backgroundColor: Color
+
+    var body: some View {
+        Button {
+
+        } label: {
+            HStack {
+                // Text data
+                VStack(alignment: .leading) {
+                    Text(appType + " Apps")
+                        .fontWeight(.bold)
+                        .font(.title3)
+                    Text(hours.formatted() + " Hours")
+                        .foregroundColor(.gray)
+                }
+                .padding(10)
+
+                Spacer()
+
+                // Icon
+                Image(systemName: icon)
+                    .frame(width: 60, height: 50)
+                    .fontWeight(.bold)
+                    .font(.title2)
+                    .background(backgroundColor)
+                    .cornerRadius(10)
+                    .padding(10)
+            }
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .foregroundColor(.black)
+            .background(.white)
+            .cornerRadius(5)
+            .padding([.top, .bottom], 5)
+            .padding([.leading, .trailing], 15)
+            .shadow(color: .gray, radius: 5)
+        }
     }
 }
 
