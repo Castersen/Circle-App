@@ -97,16 +97,30 @@ struct ManageApps: View {
     }
 }
 
+// Survey Section
 struct TakeSurvey: View {
-    var body: some View {
-        Text("Take Survey")
-    }
-}
 
-struct HealthData: View {
     var body: some View {
-        Text("Health View")
-    }
+        Button {
+            // Action here
+        } label: {
+            HStack {
+                Text("Take Survey")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Spacer()
+                Image(systemName: "list.bullet.clipboard")
+                    .font(.title)
+                    .fontWeight(.bold)
+                }
+            .padding(15)
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(.cyan)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            .shadow(color: .gray, radius: 10)
+            }
+        }
 }
 
 struct HomePageView_Previews: PreviewProvider {
