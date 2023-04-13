@@ -9,23 +9,35 @@ import SwiftUI
 
 struct HomePageView: View {
 
+    @State var username: String = "User"
     var body: some View {
         NavigationStack {
-            VStack {
-                // Wellness Score
-                Score(score: 5)
+            ScrollView {
+                VStack(alignment: .leading) {
 
-                // Manage circle members
-                CircleMembers()
+                    // Header
+                    HStack(alignment: .bottom) {
+                        Text("Welcome,")
+                            .fontWeight(.bold)
+                            .font(.title)
+                        Text(username)
+                            .font(.title)
+                            .foregroundColor(.gray)
+                    }
+                    .padding(10)
 
-                // Manage apps
-                ManageApps()
-
-                // Take survey
-                TakeSurvey()
-
-                // Health view
-                HealthData()
+                    Group {
+                        // Wellness Score
+                        Score(score: 50)
+                        // Manage circle members
+                        CircleMembers()
+                        // Take survey
+                        TakeSurvey()
+                        // Manage apps
+                        ManageApps()
+                    }
+                    .padding(10)
+                }
             }
         }
         .navigationBarBackButtonHidden()
