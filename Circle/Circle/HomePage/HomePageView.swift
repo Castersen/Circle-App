@@ -59,9 +59,35 @@ struct Score: View {
     }
 }
 
+// Cicrle members
 struct CircleMembers: View {
     var body: some View {
-        Text("Manage circle members")
+        Button {
+            // Action here
+        } label:
+        {
+            HStack {
+                Group {
+                    VStack(alignment: .leading) {
+                        Text("Manage Circle Members")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                        Text("Circle members are a way to help those close to you improve your well being")
+                            .font(.footnote)
+                            .multilineTextAlignment(.leading)
+                    }
+                    Image(systemName: "circle")
+                        .fontWeight(.bold)
+                        .font(.largeTitle)
+                }
+                .padding(15)
+            }
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(Color(red: 249/255, green: 135/255, blue: 3/255))
+            .foregroundColor(.white)
+            .cornerRadius(15)
+            .shadow(color: .gray, radius: 10)
+        }
     }
 }
 
