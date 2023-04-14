@@ -1,0 +1,45 @@
+{
+  "auth": {
+    "circleapp14d228c9": {
+      "customAuth": false,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "imported"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_auth_circleapp14d228c9_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "circleapp14d228c9"
+        }
+      ]
+    },
+    "AMPLIFY_auth_circleapp14d228c9_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "circleapp14d228c9"
+        }
+      ]
+    },
+    "AMPLIFY_auth_circleapp14d228c9_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "circleapp14d228c9"
+        }
+      ]
+    },
+    "AMPLIFY_auth_circleapp14d228c9_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "circleapp14d228c9"
+        }
+      ]
+    }
+  }
+}
