@@ -6,12 +6,24 @@
 //
 
 import SwiftUI
+import Amplify
+import AWSCognitoAuthPlugin
 
 @main
 struct CircleApp: App {
+    init() {
+        configureAmplify()
+    }
+
     var body: some Scene {
         WindowGroup {
-            SignUpView()
+    private func configureAmplify() {
+            do {
+                try Amplify.add(plugin: AWSCognitoAuthPlugin())
+                try Amplify.configure()
+                print("Amplify configured with auth plugin")
+            } catch {
+                print("Failed to initialize Amplify with \(error)")
+            }
         }
-    }
 }
