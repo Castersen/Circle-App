@@ -90,13 +90,13 @@ fastlane/test_output
 iOSInjectionProject/
 
 #amplify-do-not-edit-begin
-amplify/\#current-cloud-backend
-amplify/.config/local-*
-amplify/logs
-amplify/mock-data
-amplify/mock-api-resources
-amplify/backend/amplify-meta.json
-amplify/backend/.temp
+Circle/amplify/\#current-cloud-backend
+Circle/amplify/.config/local-*
+Circle/amplify/logs
+Circle/amplify/mock-data
+Circle/amplify/mock-api-resources
+Circle/amplify/backend/amplify-meta.json
+Circle/amplify/backend/.temp
 build/
 dist/
 node_modules/
@@ -112,4 +112,4 @@ amplifytools.xcconfig
 #amplify-do-not-edit-end
 
 # https://docs.amplify.aws/cli/teams/shared/
-amplify/team-provider-info.json
+Circle/amplify/team-provider-info.json
