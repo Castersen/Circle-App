@@ -34,6 +34,9 @@ struct ConfirmAccountView: View {
 
             // Submit Button
             Button(action: {
+                Task {
+                    await confirmCodeHandler(confirmationCode: confirmCode, username: username, sessionManager: sessionManager)
+                }
             }, label: {
                 Text("CONFIRM ACCOUNT")
             })
@@ -42,6 +45,10 @@ struct ConfirmAccountView: View {
         .padding(20)
         .textFieldStyle(SignUpFieldStyle())
     }
+}
+
+func confirmCodeHandler(confirmationCode: String, username: String, sessionManager: SessionManager) async -> Void {
+    await sessionManager.confirmSignUp(for: username, with: confirmationCode)
 }
 
 struct ConfirmAccountView_Previews: PreviewProvider {

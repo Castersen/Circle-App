@@ -16,7 +16,6 @@ struct SignUpView: View {
     @State var username: String = ""
     @State var password: String = ""
     @State var confirmPassword: String = ""
-    @State var signUpPass: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -38,9 +37,13 @@ struct SignUpView: View {
                     .overlay(FieldOverlay(image: Image(systemName: "lock")))
 
                 // Submit Button
-                Button("SIGN UP") {
-                    signUpPass = SignUpHandler(Email: email, Username: username, Password: password, ConfirmPassword: confirmPassword)
-                }
+                Button(action: {
+                    Task {
+                        await SignUpHandler(Email: email, Username: username, Password: password, ConfirmPassword: confirmPassword, sessionManager: sessionManager)
+                    }
+                }, label: {
+                  Text("SIGN UP")
+                })
                 .buttonStyle(ActionButtonStyle())
 
                 HStack {
@@ -54,9 +57,6 @@ struct SignUpView: View {
             }
             .padding(20)
             .textFieldStyle(SignUpFieldStyle())
-            .navigationDestination(isPresented: $signUpPass) {
-                HomePageView()
-            }
         }
         .navigationBarBackButtonHidden()
     }
@@ -64,8 +64,15 @@ struct SignUpView: View {
 
 // Create account logic
 func SignUpHandler(Email: String, Username: String,
-                   Password: String, ConfirmPassword: String) -> Bool {
-    return true
+                   Password: String, ConfirmPassword: String,
+                   sessionManager: SessionManager) async -> Void {
+    if Email.isEmpty || Username.isEmpty || Password.isEmpty || ConfirmPassword.isEmpty {
+        return
+    }
+    if Password != ConfirmPassword {
+        return
+    }
+    await sessionManager.signUp(username: Username, password: Password, email: Email)
 }
 
 // Field overlay

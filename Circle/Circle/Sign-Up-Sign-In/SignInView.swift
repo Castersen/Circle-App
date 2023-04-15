@@ -35,7 +35,9 @@ struct SignInView: View {
 
                 // Submit Button
                 Button("LOGIN") {
-                    logInPass = SignInHandler(Email: email, Password: password)
+                    Task {
+                        await SignInHandler(username: email, Password: password, sessionManager: sessionManager)
+                    }
                 }
                 .buttonStyle(ActionButtonStyle())
 
@@ -49,15 +51,16 @@ struct SignInView: View {
             }
             .padding(20)
             .textFieldStyle(SignUpFieldStyle())
-            .navigationDestination(isPresented: $logInPass) {
-                HomePageView()
-            }
         }
     }
 }
 
-func SignInHandler(Email: String, Password: String) -> Bool {
-    return true
+func SignInHandler(username: String, Password: String,
+                   sessionManager: SessionManager) async -> Void {
+    if username.isEmpty || Password.isEmpty {
+        return
+    }
+    await sessionManager.signIn(username: username, password: Password)
 }
 
 struct SignInView_Previews: PreviewProvider {

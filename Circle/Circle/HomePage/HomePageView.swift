@@ -38,6 +38,8 @@ struct HomePageView: View {
                         TakeSurvey()
                         // Manage apps
                         ManageApps()
+                        // Sign out
+                        SignOut(sessionManager: sessionManager)
                     }
                     .padding(10)
                 }
@@ -211,6 +213,35 @@ struct TakeSurvey: View {
             }
         }
 }
+
+struct SignOut: View {
+
+    var sessionManager: SessionManager
+    var body: some View {
+        Button {
+            Task {
+                await sessionManager.signOutLocally()
+            }
+        } label: {
+            HStack {
+                Text("Sign Out")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Spacer()
+                Image(systemName: "rectangle.portrait.and.arrow.right")
+                    .font(.title)
+                    .fontWeight(.bold)
+                }
+            .padding(15)
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .background(.purple)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            .shadow(color: .gray, radius: 10)
+            }
+        }
+}
+
 
 struct HomePageView_Previews: PreviewProvider {
     struct FakeUser : AuthUser {

@@ -13,6 +13,9 @@ struct LoadingView: View {
     
     var body: some View {
         Text("Loading...")
+        .task {
+            await sessionManager.fetchCurrentAuthSession()
+        }
     }
 }
 
