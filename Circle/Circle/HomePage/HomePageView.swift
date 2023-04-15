@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import Amplify
 
 struct HomePageView: View {
 
-    @State var username: String = "User"
+    let user: AuthUser
+    @EnvironmentObject var sessionManager: SessionManager
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -20,7 +23,7 @@ struct HomePageView: View {
                         Text("Welcome,")
                             .fontWeight(.bold)
                             .font(.title)
-                        Text(username)
+                        Text(user.username)
                             .font(.title)
                             .foregroundColor(.gray)
                     }
@@ -210,7 +213,12 @@ struct TakeSurvey: View {
 }
 
 struct HomePageView_Previews: PreviewProvider {
+    struct FakeUser : AuthUser {
+        var userId: String = "TEMP"
+        let username: String = "User"
+    }
+    
     static var previews: some View {
-        HomePageView()
+        HomePageView(user: FakeUser())
     }
 }

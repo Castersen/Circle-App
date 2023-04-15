@@ -11,12 +11,39 @@ import AWSCognitoAuthPlugin
 
 @main
 struct CircleApp: App {
+
+    @ObservedObject var sessionManager = SessionManager()
+
     init() {
         configureAmplify()
     }
 
     var body: some Scene {
         WindowGroup {
+            switch sessionManager.authState {
+            case .loading:
+                LoadingView()
+                    .environmentObject(sessionManager)
+
+            case .login:
+                SignInView()
+                    .environmentObject(sessionManager)
+
+            case .signUp:
+                SignUpView()
+                    .environmentObject(sessionManager)
+
+            case .home(let user):
+                HomePageView(user: user)
+                    .environmentObject(sessionManager)
+
+            case .confirmCode(let username):
+                ConfirmAccountView(username: username)
+                    .environmentObject(sessionManager)
+            }
+        }
+    }
+
     private func configureAmplify() {
             do {
                 try Amplify.add(plugin: AWSCognitoAuthPlugin())

@@ -10,6 +10,8 @@
 		2F3A63F0D1D7E81997EDA364 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = B7D92F51A5CE9C29A8493A89 /* amplifyconfiguration.json */; };
 		3E38CD8629E89A1C00B0CEC8 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = 3E38CD8529E89A1C00B0CEC8 /* AWSCognitoAuthPlugin */; };
 		3E38CD8829E89A1C00B0CEC8 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = 3E38CD8729E89A1C00B0CEC8 /* Amplify */; };
+		3E38CD8A29E8A6CC00B0CEC8 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38CD8929E8A6CC00B0CEC8 /* SessionManager.swift */; };
+		3E38CD8C29E8BB9D00B0CEC8 /* ConfirmAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38CD8B29E8BB9D00B0CEC8 /* ConfirmAccountView.swift */; };
 		3E38CD8E29E9CA7900B0CEC8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E38CD8D29E9CA7900B0CEC8 /* LoadingView.swift */; };
 		3E557E2129E493880095E700 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E557E2029E493880095E700 /* SignInView.swift */; };
 		3E5D3AE729DE676500F1AA99 /* CircleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5D3AE629DE676500F1AA99 /* CircleApp.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		39F7F5F5738DE9E6A83B2295 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		3E38CD8329E895FD00B0CEC8 /* Circle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Circle.entitlements; sourceTree = "<group>"; };
+		3E38CD8929E8A6CC00B0CEC8 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		3E38CD8B29E8BB9D00B0CEC8 /* ConfirmAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAccountView.swift; sourceTree = "<group>"; };
 		3E38CD8D29E9CA7900B0CEC8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		3E557E2029E493880095E700 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		3E5D3AE329DE676500F1AA99 /* Circle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Circle.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +84,7 @@
 				3ECFF07729E70E7900F26C51 /* HomePage */,
 				3E5D3AF429DE690300F1AA99 /* Sign-Up-Sign-In */,
 				3E5D3AE629DE676500F1AA99 /* CircleApp.swift */,
+				3E38CD8929E8A6CC00B0CEC8 /* SessionManager.swift */,
 				3E5D3AEA29DE676600F1AA99 /* Assets.xcassets */,
 				3E5D3AEC29DE676600F1AA99 /* Preview Content */,
 			);
@@ -99,6 +104,7 @@
 			children = (
 				3E5D3AF529DE943500F1AA99 /* SignUpView.swift */,
 				3E557E2029E493880095E700 /* SignInView.swift */,
+				3E38CD8B29E8BB9D00B0CEC8 /* ConfirmAccountView.swift */,
 				3E38CD8D29E9CA7900B0CEC8 /* LoadingView.swift */,
 			);
 			path = "Sign-Up-Sign-In";
@@ -194,8 +200,10 @@
 				3E557E2129E493880095E700 /* SignInView.swift in Sources */,
 				3E5D3AF629DE943500F1AA99 /* SignUpView.swift in Sources */,
 				3ECFF07929E70E8F00F26C51 /* HomePageView.swift in Sources */,
+				3E38CD8A29E8A6CC00B0CEC8 /* SessionManager.swift in Sources */,
 				3E5D3AE729DE676500F1AA99 /* CircleApp.swift in Sources */,
 				3E38CD8E29E9CA7900B0CEC8 /* LoadingView.swift in Sources */,
+				3E38CD8C29E8BB9D00B0CEC8 /* ConfirmAccountView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

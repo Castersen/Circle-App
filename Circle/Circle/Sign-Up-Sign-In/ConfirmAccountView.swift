@@ -11,6 +11,7 @@ struct ConfirmAccountView: View {
 
     let username: String
 
+    @EnvironmentObject var sessionManager: SessionManager
     @State var confirmCode: String = ""
 
     var body: some View {

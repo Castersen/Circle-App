@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoadingView: View {
 
+    @EnvironmentObject var sessionManager: SessionManager
+    
     var body: some View {
         Text("Loading...")
     }

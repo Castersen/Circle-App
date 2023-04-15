@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SignInView: View {
+
+    @EnvironmentObject var sessionManager: SessionManager
+
     @State var email: String = ""
     @State var password: String = ""
     @State var logInPass: Bool = false
@@ -25,7 +28,7 @@ struct SignInView: View {
                     .bold()
 
                 // Input fields
-                TextField("EMAIL", text: $email)
+                TextField("EMAIL/USERNAME", text: $email)
                     .overlay(FieldOverlay(image: Image(systemName: "envelope")))
                 SecureField("PASSWORD", text: $password)
                     .overlay(FieldOverlay(image: Image(systemName: "lock")))

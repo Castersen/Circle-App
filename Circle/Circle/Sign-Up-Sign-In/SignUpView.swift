@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SignUpView: View {
+ 
+    @EnvironmentObject var sessionManager: SessionManager
+
     // Store the user input
     @State var email: String = ""
     @State var username: String = ""
