@@ -82,7 +82,7 @@
 			children = (
 				3E38CD8329E895FD00B0CEC8 /* Circle.entitlements */,
 				3ECFF07729E70E7900F26C51 /* HomePage */,
-				3E5D3AF429DE690300F1AA99 /* Sign-Up-Sign-In */,
+				3E5D3AF429DE690300F1AA99 /* SignUpSignIn */,
 				3E5D3AE629DE676500F1AA99 /* CircleApp.swift */,
 				3E38CD8929E8A6CC00B0CEC8 /* SessionManager.swift */,
 				3E5D3AEA29DE676600F1AA99 /* Assets.xcassets */,
@@ -99,7 +99,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3E5D3AF429DE690300F1AA99 /* Sign-Up-Sign-In */ = {
+		3E5D3AF429DE690300F1AA99 /* SignUpSignIn */ = {
 			isa = PBXGroup;
 			children = (
 				3E5D3AF529DE943500F1AA99 /* SignUpView.swift */,
@@ -107,7 +107,7 @@
 				3E38CD8B29E8BB9D00B0CEC8 /* ConfirmAccountView.swift */,
 				3E38CD8D29E9CA7900B0CEC8 /* LoadingView.swift */,
 			);
-			path = "Sign-Up-Sign-In";
+			path = SignUpSignIn;
 			sourceTree = "<group>";
 		};
 		3ECFF07729E70E7900F26C51 /* HomePage */ = {
