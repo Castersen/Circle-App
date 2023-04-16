@@ -2,7 +2,7 @@
 //  HomePageView.swift
 //  Circle
 //
-//  Created by Jabet on 4/12/23.
+//  Created by Jonathan Castersen on 4/12/23.
 //
 
 import SwiftUI
