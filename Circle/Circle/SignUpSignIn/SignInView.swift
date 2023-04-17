@@ -47,12 +47,19 @@ struct SignInView: View {
                 .opacity(signInVM.isSignUpComplete ? 1 : 0.8)
                 .disabled(!signInVM.isSignUpComplete)
 
-                HStack {
-                    Text("Don't have an account?")
-                    Button("Sign Up") {
-                        dismiss()
+                VStack {
+                    Text(signInVM.errorPrompt)
+                        .font(.footnote)
+                        .foregroundColor(.red)
+                        .fontWeight(.bold)
+
+                    HStack {
+                        Text("Don't have an account?")
+                        Button("Sign Up") {
+                            dismiss()
+                        }
+                        .foregroundColor(Color(red: 249/255, green: 135/255, blue: 3/255))
                     }
-                    .foregroundColor(Color(red: 249/255, green: 135/255, blue: 3/255))
                 }
             }
             .padding(20)
