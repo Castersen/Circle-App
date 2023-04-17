@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import Amplify
 
 class SignUpViewModel: ObservableObject {
     @Published var username: String = ""
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPw: String = ""
+    
+    @Published var error: AuthError? = nil
 
     // MARK: - Validation Functions
 
@@ -64,8 +67,16 @@ class SignUpViewModel: ObservableObject {
             return "Must be at least 8 characters containing at least one number, one capital letter, and one special character"
         }
     }
+    
+    var errorPrompt: String {
+        if error == nil {
+            return ""
+        } else {
+            return "\(String(describing: error))"
+        }
+    }
 
     func signUp(sessionManager: SessionManager) async {
-        await sessionManager.signUp(username: username, password: password, email: email)
+        error = await sessionManager.signUp(username: username, password: password, email: email)
     }
 }

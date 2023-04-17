@@ -58,11 +58,18 @@ struct SignUpView: View {
                 .opacity(signUpVM.isSignUpComplete ? 1 : 0.8)
                 .disabled(!signUpVM.isSignUpComplete)
 
-                HStack {
-                    Text("Already have an account?")
-                    NavigationLink(destination: SignInView()) {
-                        Text("Sign In")
-                            .foregroundColor(Color(red: 249/255, green: 135/255, blue: 3/255))
+                VStack {
+                    Text(signUpVM.errorPrompt)
+                        .font(.footnote)
+                        .foregroundColor(.red)
+                        .fontWeight(.bold)
+
+                    HStack {
+                        Text("Already have an account?")
+                        NavigationLink(destination: SignInView()) {
+                            Text("Sign In")
+                                .foregroundColor(Color(red: 249/255, green: 135/255, blue: 3/255))
+                        }
                     }
                 }
                 

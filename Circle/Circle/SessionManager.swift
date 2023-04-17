@@ -45,7 +45,7 @@ final class SessionManager : ObservableObject {
     }
 
     // Sign up call
-    func signUp(username: String, password: String, email: String) async {
+    func signUp(username: String, password: String, email: String) async -> AuthError? {
         let userAttributes = [AuthUserAttribute(.email, value: email)]
         let options = AuthSignUpRequest.Options(userAttributes: userAttributes)
         do {
@@ -67,9 +67,12 @@ final class SessionManager : ObservableObject {
             }
         } catch let error as AuthError {
             print("An error occurred while registering a user \(error)")
+            return error
         } catch {
             print("Unexpected error: \(error)")
         }
+        
+        return nil
     }
 
     // Sign in call
