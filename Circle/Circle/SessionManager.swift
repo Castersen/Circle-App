@@ -88,6 +88,11 @@ final class SessionManager : ObservableObject {
                     await self?.fetchCurrentAuthSession()
                 } }
             }
+            if case .confirmSignUp(_) = signInResult.nextStep {
+                DispatchQueue.main.async { [weak self] in
+                    self?.authState = .confirmCode(username: username)
+                }
+            }
         } catch let error as AuthError {
             print("Sign in failed \(error)")
             return error
