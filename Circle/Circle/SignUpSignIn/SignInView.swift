@@ -10,10 +10,7 @@ import SwiftUI
 struct SignInView: View {
 
     @EnvironmentObject var sessionManager: SessionManager
-
-    @State var email: String = ""
-    @State var password: String = ""
-    @State var logInPass: Bool = false
+    @ObservedObject var signInVM = SignInViewModel()
     
     // Used to pop off the stack and return to the previous view
     @Environment(\.dismiss) private var dismiss
@@ -28,18 +25,27 @@ struct SignInView: View {
                     .bold()
 
                 // Input fields
-                TextField("EMAIL/USERNAME", text: $email)
+                TextField("EMAIL/USERNAME", text: $signInVM.username)
+                    .textInputAutocapitalization(.none)
                     .overlay(FieldOverlay(image: Image(systemName: "envelope")))
-                SecureField("PASSWORD", text: $password)
+
+                SecureField("PASSWORD", text: $signInVM.password)
+                    .textInputAutocapitalization(.none)
                     .overlay(FieldOverlay(image: Image(systemName: "lock")))
+                Text(signInVM.passwordPrompt)
+                    .font(.footnote)
+                    .foregroundColor(.red)
+                    .fontWeight(.bold)
 
                 // Submit Button
                 Button("LOGIN") {
                     Task {
-                        await SignInHandler(username: email, Password: password, sessionManager: sessionManager)
+                        await signInVM.signIn(sessionManager: self.sessionManager)
                     }
                 }
                 .buttonStyle(ActionButtonStyle())
+                .opacity(signInVM.isSignUpComplete ? 1 : 0.8)
+                .disabled(!signInVM.isSignUpComplete)
 
                 HStack {
                     Text("Don't have an account?")
@@ -53,14 +59,6 @@ struct SignInView: View {
             .textFieldStyle(SignUpFieldStyle())
         }
     }
-}
-
-func SignInHandler(username: String, Password: String,
-                   sessionManager: SessionManager) async -> Void {
-    if username.isEmpty || Password.isEmpty {
-        return
-    }
-    await sessionManager.signIn(username: username, password: Password)
 }
 
 struct SignInView_Previews: PreviewProvider {
