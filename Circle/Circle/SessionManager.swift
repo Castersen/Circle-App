@@ -76,7 +76,7 @@ final class SessionManager : ObservableObject {
     }
 
     // Sign in call
-    func signIn(username: String, password: String) async {
+    func signIn(username: String, password: String) async -> AuthError? {
         do {
             let signInResult = try await Amplify.Auth.signIn(
                 username: username,
@@ -90,13 +90,16 @@ final class SessionManager : ObservableObject {
             }
         } catch let error as AuthError {
             print("Sign in failed \(error)")
+            return error
         } catch {
             print("Unexpected error: \(error)")
         }
+
+        return nil
     }
 
     // Confirmation sign up call
-    func confirmSignUp(for username: String, with confirmationCode: String) async {
+    func confirmSignUp(for username: String, with confirmationCode: String) async -> AuthError? {
         do {
             let confirmSignUpResult = try await Amplify.Auth.confirmSignUp(
                 for: username,
@@ -108,9 +111,12 @@ final class SessionManager : ObservableObject {
             }
         } catch let error as AuthError {
             print("An error occurred while confirming sign up \(error)")
+            return error
         } catch {
             print("Unexpected error: \(error)")
         }
+
+        return nil
     }
 
     // Local sign out
