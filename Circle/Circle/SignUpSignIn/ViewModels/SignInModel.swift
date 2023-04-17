@@ -6,10 +6,13 @@
 //
 
 import Foundation
+import Amplify
 
 class SignInViewModel: ObservableObject {
     @Published var username: String = ""
     @Published var password: String = ""
+
+    @Published var error: AuthError? = nil
 
     // MARK: - Validation Functions
 
@@ -36,7 +39,16 @@ class SignInViewModel: ObservableObject {
         }
     }
 
+    var errorPrompt: String {
+        if error == nil {
+            return ""
+        } else {
+            return "\(String(describing: error))"
+        }
+    }
+
+    @MainActor
     func signIn(sessionManager: SessionManager) async {
-        await sessionManager.signIn(username: username, password: password)
+        error = await sessionManager.signIn(username: username, password: password)
     }
 }
