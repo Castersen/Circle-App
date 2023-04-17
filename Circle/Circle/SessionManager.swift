@@ -62,7 +62,7 @@ final class SessionManager : ObservableObject {
             } else {
                 print("SignUp Complete")
                 DispatchQueue.main.async { [weak self] in
-                    self?.authState = .confirmCode(username: username)
+                    self?.authState = .login
                 }
             }
         } catch let error as AuthError {
