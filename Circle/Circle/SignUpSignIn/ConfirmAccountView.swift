@@ -12,7 +12,7 @@ struct ConfirmAccountView: View {
     let username: String
 
     @EnvironmentObject var sessionManager: SessionManager
-    @State var confirmCode: String = ""
+    @ObservedObject var confirmAccountModel = ConfirmAccountModel()
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -26,29 +26,34 @@ struct ConfirmAccountView: View {
                 .bold()
 
             // Input fields
-            TextField("CONFIRM CODE", text: $confirmCode)
+            TextField("CONFIRM CODE", text: $confirmAccountModel.code)
                 .overlay(FieldOverlay(image: Image(systemName: "checkmark.circle")))
                 .keyboardType(.numberPad)
                 .foregroundColor(Color(red: 249/255, green: 135/255, blue: 3/255))
                 .fontWeight(.bold)
+            Text(confirmAccountModel.codePrompt)
+                .font(.footnote)
+                .foregroundColor(.red)
+                .fontWeight(.bold)
+
 
             // Submit Button
             Button(action: {
                 Task {
-                    await confirmCodeHandler(confirmationCode: confirmCode, username: username, sessionManager: sessionManager)
+                    await confirmAccountModel.submitCode(sessionManager: self.sessionManager, username: self.username)
                 }
             }, label: {
                 Text("CONFIRM ACCOUNT")
             })
             .buttonStyle(ActionButtonStyle())
+            Text(confirmAccountModel.errorPrompt)
+                .font(.footnote)
+                .foregroundColor(.red)
+                .fontWeight(.bold)
         }
         .padding(20)
         .textFieldStyle(SignUpFieldStyle())
     }
-}
-
-func confirmCodeHandler(confirmationCode: String, username: String, sessionManager: SessionManager) async -> Void {
-    await sessionManager.confirmSignUp(for: username, with: confirmationCode)
 }
 
 struct ConfirmAccountView_Previews: PreviewProvider {
