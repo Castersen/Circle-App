@@ -81,19 +81,6 @@ struct SignUpView: View {
     }
 }
 
-// Create account logic
-func SignUpHandler(Email: String, Username: String,
-                   Password: String, ConfirmPassword: String,
-                   sessionManager: SessionManager) async -> Void {
-    if Email.isEmpty || Username.isEmpty || Password.isEmpty || ConfirmPassword.isEmpty {
-        return
-    }
-    if Password != ConfirmPassword {
-        return
-    }
-    await sessionManager.signUp(username: Username, password: Password, email: Email)
-}
-
 // Field overlay
 struct FieldOverlay : View {
     var image: Image
