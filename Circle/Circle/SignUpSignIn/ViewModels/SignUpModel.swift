@@ -76,6 +76,7 @@ class SignUpViewModel: ObservableObject {
         }
     }
 
+    @MainActor
     func signUp(sessionManager: SessionManager) async {
         error = await sessionManager.signUp(username: username, password: password, email: email)
     }
