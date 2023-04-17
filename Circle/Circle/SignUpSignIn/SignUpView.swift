@@ -10,12 +10,7 @@ import SwiftUI
 struct SignUpView: View {
  
     @EnvironmentObject var sessionManager: SessionManager
-
-    // Store the user input
-    @State var email: String = ""
-    @State var username: String = ""
-    @State var password: String = ""
-    @State var confirmPassword: String = ""
+    @ObservedObject var signUpVM = SignUpViewModel()
 
     var body: some View {
         NavigationStack {
@@ -27,24 +22,41 @@ struct SignUpView: View {
                     .bold()
 
                 // Input fields
-                TextField("USERNAME", text: $username)
+                TextField("USERNAME", text: $signUpVM.username)
                     .overlay(FieldOverlay(image: Image(systemName: "person")))
-                TextField("EMAIL", text: $email)
+
+                TextField("EMAIL", text: $signUpVM.email)
                     .overlay(FieldOverlay(image: Image(systemName: "envelope")))
-                SecureField("PASSWORD", text: $password)
+                Text(signUpVM.emailPrompt)
+                    .font(.footnote)
+                    .foregroundColor(.red)
+                    .fontWeight(.bold)
+
+                SecureField("PASSWORD", text: $signUpVM.password)
                     .overlay(FieldOverlay(image: Image(systemName: "lock")))
-                SecureField("CONFIRM PASSWORD", text: $confirmPassword)
+                Text(signUpVM.passwordPrompt)
+                    .font(.footnote)
+                    .foregroundColor(.red)
+                    .fontWeight(.bold)
+
+                SecureField("CONFIRM PASSWORD", text: $signUpVM.confirmPw)
                     .overlay(FieldOverlay(image: Image(systemName: "lock")))
+                Text(signUpVM.confirmPwPrompt)
+                    .font(.footnote)
+                    .foregroundColor(.red)
+                    .fontWeight(.bold)
 
                 // Submit Button
                 Button(action: {
                     Task {
-                        await SignUpHandler(Email: email, Username: username, Password: password, ConfirmPassword: confirmPassword, sessionManager: sessionManager)
+                        await signUpVM.signUp(sessionManager: self.sessionManager)
                     }
                 }, label: {
                   Text("SIGN UP")
                 })
                 .buttonStyle(ActionButtonStyle())
+                .opacity(signUpVM.isSignUpComplete ? 1 : 0.8)
+                .disabled(!signUpVM.isSignUpComplete)
 
                 HStack {
                     Text("Already have an account?")
